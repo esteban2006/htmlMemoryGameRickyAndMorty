@@ -29,11 +29,6 @@ class juego {
 		this.decimales = 0
 		this.tiempo = ''
 		this.stop = true
-		//level 
-
-		this.level = 1
-		this.cardsInit = 10
-		this.increment = 2
 	}
 
 	fetchCharacters = async () => {
@@ -65,8 +60,7 @@ class juego {
 		for (let i = 0; i < this.dataAPI.data.info.count; i++) {
 			this.NumerosAPI.push(i + 1);
 		}
-		// console.log((this.cardsInit + (this.level*this.increment)));
-		this.NumerosAPI = this.NumerosAPI.sort(() => Math.random() - 0.5).slice(0, (this.cardsInit + (this.level*this.increment)));
+		this.NumerosAPI = this.NumerosAPI.sort(() => Math.random() - 0.5).slice(0, 10);
 	
 		// Duplicate the numbers to create pairs
 		const LengthStatic = this.NumerosAPI.length;
@@ -188,7 +182,7 @@ class juego {
 	}
 
 	newGame() {
-		location.reload();
+		location.reload()
 	}
 
 	getRndInteger(min, max) {
